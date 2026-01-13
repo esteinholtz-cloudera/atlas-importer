@@ -316,7 +316,7 @@ class AtlasClient:
         term_guid_map: Dict[Tuple[str, str], str],
         terms: Dict[Tuple[str, str], Term]
     ) -> None:
-        """Update all term relationships"""
+        """Update term relationships by fetching full term object and updating with relationships"""
         for key, term in terms.items():
             if key not in term_guid_map:
                 logger.warning(f"Term '{key[0]}.{key[1]}' not found in GUID map, skipping relationship update")
@@ -324,48 +324,65 @@ class AtlasClient:
             
             term_guid = term_guid_map[key]
             
-            # Build relationship payload with only GUIDs
-            updates = {}
+            # Only process if term has relationships
+            has_relationships = (
+                term.synonyms or term.antonyms or term.related_terms or 
+                term.preferred_terms or term.replacement_terms or term.see_also or 
+                term.is_a or term.classifies
+            )
             
-            # Convert qualified names to GUIDs
-            if term.synonyms:
-                updates["synonyms"] = [{"termGuid": self._resolve_term_guid(syn, term_guid_map)} for syn in term.synonyms]
-            if term.antonyms:
-                updates["antonyms"] = [{"termGuid": self._resolve_term_guid(ant, term_guid_map)} for ant in term.antonyms]
-            if term.related_terms:
-                updates["relatedTerms"] = [{"termGuid": self._resolve_term_guid(rel, term_guid_map)} for rel in term.related_terms]
-            if term.preferred_terms:
-                updates["preferredTerms"] = [{"termGuid": self._resolve_term_guid(pref, term_guid_map)} for pref in term.preferred_terms]
-            if term.replacement_terms:
-                updates["replacementTerms"] = [{"termGuid": self._resolve_term_guid(repl, term_guid_map)} for repl in term.replacement_terms]
-            if term.see_also:
-                updates["seeAlso"] = [{"termGuid": self._resolve_term_guid(see, term_guid_map)} for see in term.see_also]
-            if term.is_a:
-                updates["isA"] = [{"termGuid": self._resolve_term_guid(isa, term_guid_map)} for isa in term.is_a]
-            if term.classifies:
-                updates["classifies"] = [{"termGuid": self._resolve_term_guid(cls, term_guid_map)} for cls in term.classifies]
+            if not has_relationships:
+                continue
             
-            if updates:
-                try:
-                    import sys, json
-                    # Use individual term update endpoint
-                    url = f"{self.base_url}/api/atlas/v2/glossary/term/{term_guid}"
-                    
-                    # Log API call
-                    sys.stderr.write(f"\n→ PUT {url}\n")
-                    sys.stderr.write(f"  {json.dumps(updates, indent=2)}\n")
-                    sys.stderr.flush()
-                    
-                    logger.debug(f"Updating relationships for term {term_guid}")
-                    response = self.session.put(url, json=updates)
-                    self._handle_response(response, f"update relationships for term '{key[0]}.{key[1]}'")
-                    logger.info(f"✓ Updated relationships for term '{key[0]}.{key[1]}'")
-                    
-                    sys.stderr.write(f"  ← Response: Updated\n")
-                    sys.stderr.flush()
-                except Exception as e:
-                    logger.error(f"Failed to update relationships for term '{key[0]}.{key[1]}': {str(e)}")
-                    raise
+            try:
+                import sys, json
+                
+                # Fetch current term from Atlas
+                fetch_url = f"{self.base_url}/api/atlas/v2/glossary/term/{term_guid}"
+                logger.debug(f"Fetching current term {term_guid} from Atlas...")
+                fetch_response = self.session.get(fetch_url)
+                current_term = self._handle_response(fetch_response, f"fetch term '{key[0]}.{key[1]}'")
+                
+                if not current_term:
+                    logger.warning(f"Could not fetch term '{key[0]}.{key[1]}' from Atlas, skipping relationships")
+                    continue
+                
+                # Build relationship updates
+                if term.synonyms:
+                    current_term["synonyms"] = [{"termGuid": self._resolve_term_guid(syn, term_guid_map), "displayName": self._extract_term_name(syn)} for syn in term.synonyms]
+                if term.antonyms:
+                    current_term["antonyms"] = [{"termGuid": self._resolve_term_guid(ant, term_guid_map), "displayName": self._extract_term_name(ant)} for ant in term.antonyms]
+                if term.related_terms:
+                    current_term["relatedTerms"] = [{"termGuid": self._resolve_term_guid(rel, term_guid_map), "displayName": self._extract_term_name(rel)} for rel in term.related_terms]
+                if term.preferred_terms:
+                    current_term["preferredTerms"] = [{"termGuid": self._resolve_term_guid(pref, term_guid_map), "displayName": self._extract_term_name(pref)} for pref in term.preferred_terms]
+                if term.replacement_terms:
+                    current_term["replacementTerms"] = [{"termGuid": self._resolve_term_guid(repl, term_guid_map), "displayName": self._extract_term_name(repl)} for repl in term.replacement_terms]
+                if term.see_also:
+                    current_term["seeAlso"] = [{"termGuid": self._resolve_term_guid(see, term_guid_map), "displayName": self._extract_term_name(see)} for see in term.see_also]
+                if term.is_a:
+                    current_term["isA"] = [{"termGuid": self._resolve_term_guid(isa, term_guid_map), "displayName": self._extract_term_name(isa)} for isa in term.is_a]
+                if term.classifies:
+                    current_term["classifies"] = [{"termGuid": self._resolve_term_guid(cls, term_guid_map), "displayName": self._extract_term_name(cls)} for cls in term.classifies]
+                
+                # Update term with relationships
+                url = f"{self.base_url}/api/atlas/v2/glossary/term/{term_guid}"
+                
+                # Log API call
+                sys.stderr.write(f"\n→ PUT {url}\n")
+                sys.stderr.write(f"  {json.dumps(current_term, indent=2)}\n")
+                sys.stderr.flush()
+                
+                logger.debug(f"Updating relationships for term {term_guid}")
+                response = self.session.put(url, json=current_term)
+                self._handle_response(response, f"update relationships for term '{key[0]}.{key[1]}'")
+                logger.info(f"✓ Updated relationships for term '{key[0]}.{key[1]}'")
+                
+                sys.stderr.write(f"  ← Response: Updated\n")
+                sys.stderr.flush()
+            except Exception as e:
+                logger.error(f"Failed to update relationships for term '{key[0]}.{key[1]}': {str(e)}")
+                raise
     
     def _resolve_term_guid(self, qualified_name: str, term_guid_map: Dict[Tuple[str, str], str]) -> str:
         """Resolve a qualified name to its GUID"""

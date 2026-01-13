@@ -358,3 +358,251 @@ Traceback (most recent call last):
   File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 36, in _handle_response
     raise Exception(
 Exception: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty
+2026-01-13 22:47:47,729 - __main__ - INFO - ================================================================================
+2026-01-13 22:47:47,730 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 22:47:47,730 - __main__ - INFO - ================================================================================
+2026-01-13 22:47:47,730 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 22:47:47,730 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 22:47:47,730 - __main__ - INFO - Dry-run mode: False
+2026-01-13 22:47:47,730 - __main__ - INFO - Validate only: False
+2026-01-13 22:47:47,730 - __main__ - INFO - Exclude relationships: False
+2026-01-13 22:47:47,730 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 22:47:47,730 - __main__ - INFO - SSL verification: True
+2026-01-13 22:47:47,730 - __main__ - INFO - Request timeout: 30s
+2026-01-13 22:47:47,730 - __main__ - INFO - ================================================================================
+2026-01-13 22:47:53,723 - __main__ - ERROR - Import failed: Atlas API error (500) during update relationships for term 'Sales Dictionary.Revenue': There was an error processing your request. It has been logged (ID 2101c7432bc83c90).
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 303, in _execute_import
+    client.update_term_relationships(term_guid_map, terms)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 361, in update_term_relationships
+    self._handle_response(response, f"update relationships for term '{key[0]}.{key[1]}'")
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 36, in _handle_response
+    raise Exception(
+Exception: Atlas API error (500) during update relationships for term 'Sales Dictionary.Revenue': There was an error processing your request. It has been logged (ID 2101c7432bc83c90).
+2026-01-13 22:49:01,644 - __main__ - INFO - ================================================================================
+2026-01-13 22:49:01,644 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 22:49:01,644 - __main__ - INFO - ================================================================================
+2026-01-13 22:49:01,644 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 22:49:01,644 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 22:49:01,644 - __main__ - INFO - Dry-run mode: False
+2026-01-13 22:49:01,644 - __main__ - INFO - Validate only: False
+2026-01-13 22:49:01,644 - __main__ - INFO - Exclude relationships: False
+2026-01-13 22:49:01,644 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 22:49:01,644 - __main__ - INFO - SSL verification: True
+2026-01-13 22:49:01,644 - __main__ - INFO - Request timeout: 30s
+2026-01-13 22:49:01,644 - __main__ - INFO - ================================================================================
+2026-01-13 22:49:07,141 - __main__ - ERROR - Import failed: Atlas API error (500) during update relationships for term 'Sales Dictionary.Revenue': There was an error processing your request. It has been logged (ID a79b6c93aebc3ca2).
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 303, in _execute_import
+    client.update_term_relationships(term_guid_map, terms)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 361, in update_term_relationships
+    self._handle_response(response, f"update relationships for term '{key[0]}.{key[1]}'")
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 36, in _handle_response
+    raise Exception(
+Exception: Atlas API error (500) during update relationships for term 'Sales Dictionary.Revenue': There was an error processing your request. It has been logged (ID a79b6c93aebc3ca2).
+2026-01-13 22:51:23,458 - __main__ - INFO - ================================================================================
+2026-01-13 22:51:23,458 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 22:51:23,458 - __main__ - INFO - ================================================================================
+2026-01-13 22:51:23,458 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 22:51:23,458 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 22:51:23,458 - __main__ - INFO - Dry-run mode: False
+2026-01-13 22:51:23,458 - __main__ - INFO - Validate only: False
+2026-01-13 22:51:23,458 - __main__ - INFO - Exclude relationships: False
+2026-01-13 22:51:23,459 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 22:51:23,459 - __main__ - INFO - SSL verification: True
+2026-01-13 22:51:23,459 - __main__ - INFO - Request timeout: 30s
+2026-01-13 22:51:23,459 - __main__ - INFO - ================================================================================
+2026-01-13 22:51:25,879 - __main__ - ERROR - Import failed: Category 'Sales Dictionary.Financial Metrics' exists but could not retrieve GUID
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 292, in _execute_import
+    category_guid_map = client.create_categories(categories, glossary_guid_map)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 209, in create_categories
+    process_category(gloss_name, cat_name)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 185, in process_category
+    raise Exception(f"Category '{gloss_name}.{cat_name}' exists but could not retrieve GUID")
+Exception: Category 'Sales Dictionary.Financial Metrics' exists but could not retrieve GUID
+2026-01-13 22:53:43,487 - __main__ - INFO - ================================================================================
+2026-01-13 22:53:43,487 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 22:53:43,487 - __main__ - INFO - ================================================================================
+2026-01-13 22:53:43,487 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 22:53:43,487 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 22:53:43,487 - __main__ - INFO - Dry-run mode: False
+2026-01-13 22:53:43,487 - __main__ - INFO - Validate only: False
+2026-01-13 22:53:43,487 - __main__ - INFO - Exclude relationships: False
+2026-01-13 22:53:43,487 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 22:53:43,487 - __main__ - INFO - SSL verification: True
+2026-01-13 22:53:43,487 - __main__ - INFO - Request timeout: 30s
+2026-01-13 22:53:43,487 - __main__ - INFO - ================================================================================
+2026-01-13 22:53:49,192 - __main__ - ERROR - Import failed: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': {"error":"Cannot deserialize value of type `org.apache.atlas.model.glossary.AtlasGlossary` from Array value (token `JsonToken.START_ARRAY`)\\n at [Source: (org.glassfish.jersey.message.internal.ReaderInterceptorExecutor$UnCloseableInputStream); line: 1, column: 1]"}
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 303, in _execute_import
+    client.update_term_relationships(term_guid_map, terms)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 365, in update_term_relationships
+    self._handle_response(response, f"update relationships for term '{key[0]}.{key[1]}'")
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 36, in _handle_response
+    raise Exception(
+Exception: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': {"error":"Cannot deserialize value of type `org.apache.atlas.model.glossary.AtlasGlossary` from Array value (token `JsonToken.START_ARRAY`)\\n at [Source: (org.glassfish.jersey.message.internal.ReaderInterceptorExecutor$UnCloseableInputStream); line: 1, column: 1]"}
+2026-01-13 22:57:06,733 - __main__ - INFO - ================================================================================
+2026-01-13 22:57:06,733 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 22:57:06,733 - __main__ - INFO - ================================================================================
+2026-01-13 22:57:06,733 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 22:57:06,734 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 22:57:06,734 - __main__ - INFO - Dry-run mode: False
+2026-01-13 22:57:06,734 - __main__ - INFO - Validate only: False
+2026-01-13 22:57:06,734 - __main__ - INFO - Exclude relationships: False
+2026-01-13 22:57:06,734 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 22:57:06,734 - __main__ - INFO - SSL verification: True
+2026-01-13 22:57:06,734 - __main__ - INFO - Request timeout: 30s
+2026-01-13 22:57:06,734 - __main__ - INFO - ================================================================================
+2026-01-13 22:57:17,247 - __main__ - ERROR - Import failed: Category 'Sales Dictionary.Financial Metrics' exists but could not retrieve GUID
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 292, in _execute_import
+    category_guid_map = client.create_categories(categories, glossary_guid_map)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 209, in create_categories
+    process_category(gloss_name, cat_name)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 185, in process_category
+    raise Exception(f"Category '{gloss_name}.{cat_name}' exists but could not retrieve GUID")
+Exception: Category 'Sales Dictionary.Financial Metrics' exists but could not retrieve GUID
+2026-01-13 22:59:30,521 - __main__ - INFO - ================================================================================
+2026-01-13 22:59:30,521 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 22:59:30,521 - __main__ - INFO - ================================================================================
+2026-01-13 22:59:30,521 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 22:59:30,521 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 22:59:30,521 - __main__ - INFO - Dry-run mode: False
+2026-01-13 22:59:30,521 - __main__ - INFO - Validate only: False
+2026-01-13 22:59:30,521 - __main__ - INFO - Exclude relationships: False
+2026-01-13 22:59:30,521 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 22:59:30,521 - __main__ - INFO - SSL verification: True
+2026-01-13 22:59:30,521 - __main__ - INFO - Request timeout: 30s
+2026-01-13 22:59:30,521 - __main__ - INFO - ================================================================================
+2026-01-13 22:59:36,664 - __main__ - ERROR - Import failed: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 303, in _execute_import
+    client.update_term_relationships(term_guid_map, terms)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 361, in update_term_relationships
+    self._handle_response(response, f"update relationships for term '{key[0]}.{key[1]}'")
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 36, in _handle_response
+    raise Exception(
+Exception: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty
+2026-01-13 23:02:28,696 - __main__ - INFO - ================================================================================
+2026-01-13 23:02:28,696 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 23:02:28,696 - __main__ - INFO - ================================================================================
+2026-01-13 23:02:28,696 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 23:02:28,696 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 23:02:28,696 - __main__ - INFO - Dry-run mode: False
+2026-01-13 23:02:28,696 - __main__ - INFO - Validate only: False
+2026-01-13 23:02:28,696 - __main__ - INFO - Exclude relationships: False
+2026-01-13 23:02:28,696 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 23:02:28,696 - __main__ - INFO - SSL verification: True
+2026-01-13 23:02:28,696 - __main__ - INFO - Request timeout: 30s
+2026-01-13 23:02:28,696 - __main__ - INFO - ================================================================================
+2026-01-13 23:02:35,468 - __main__ - ERROR - Import failed: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 303, in _execute_import
+    client.update_term_relationships(term_guid_map, terms)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 361, in update_term_relationships
+    self._handle_response(response, f"update relationships for term '{key[0]}.{key[1]}'")
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 36, in _handle_response
+    raise Exception(
+Exception: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty
+2026-01-13 23:06:06,603 - __main__ - INFO - ================================================================================
+2026-01-13 23:06:06,603 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 23:06:06,603 - __main__ - INFO - ================================================================================
+2026-01-13 23:06:06,603 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 23:06:06,603 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 23:06:06,603 - __main__ - INFO - Dry-run mode: False
+2026-01-13 23:06:06,603 - __main__ - INFO - Validate only: False
+2026-01-13 23:06:06,603 - __main__ - INFO - Exclude relationships: False
+2026-01-13 23:06:06,603 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 23:06:06,603 - __main__ - INFO - SSL verification: True
+2026-01-13 23:06:06,603 - __main__ - INFO - Request timeout: 30s
+2026-01-13 23:06:06,603 - __main__ - INFO - ================================================================================
+2026-01-13 23:06:10,445 - __main__ - ERROR - Import failed: Atlas API error (400) during create category 'Sales Dictionary.Product Details': Relationship end is invalid. Expected AtlasGlossaryCategory but is NULL
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 292, in _execute_import
+    category_guid_map = client.create_categories(categories, glossary_guid_map)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 208, in create_categories
+    process_category(gloss_name, cat_name)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 186, in process_category
+    result = self._handle_response(response, f"create category '{gloss_name}.{cat_name}'")
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 36, in _handle_response
+    raise Exception(
+Exception: Atlas API error (400) during create category 'Sales Dictionary.Product Details': Relationship end is invalid. Expected AtlasGlossaryCategory but is NULL
+2026-01-13 23:07:10,971 - __main__ - INFO - ================================================================================
+2026-01-13 23:07:10,971 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 23:07:10,971 - __main__ - INFO - ================================================================================
+2026-01-13 23:07:10,971 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 23:07:10,971 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 23:07:10,971 - __main__ - INFO - Dry-run mode: False
+2026-01-13 23:07:10,971 - __main__ - INFO - Validate only: False
+2026-01-13 23:07:10,971 - __main__ - INFO - Exclude relationships: False
+2026-01-13 23:07:10,971 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 23:07:10,971 - __main__ - INFO - SSL verification: True
+2026-01-13 23:07:10,971 - __main__ - INFO - Request timeout: 30s
+2026-01-13 23:07:10,971 - __main__ - INFO - ================================================================================
+2026-01-13 23:07:16,634 - __main__ - ERROR - Import failed: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 303, in _execute_import
+    client.update_term_relationships(term_guid_map, terms)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 361, in update_term_relationships
+    self._handle_response(response, f"update relationships for term '{key[0]}.{key[1]}'")
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 36, in _handle_response
+    raise Exception(
+Exception: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty
+2026-01-13 23:08:11,289 - __main__ - INFO - ================================================================================
+2026-01-13 23:08:11,289 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 23:08:11,289 - __main__ - INFO - ================================================================================
+2026-01-13 23:08:11,289 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 23:08:11,289 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 23:08:11,289 - __main__ - INFO - Dry-run mode: False
+2026-01-13 23:08:11,289 - __main__ - INFO - Validate only: False
+2026-01-13 23:08:11,289 - __main__ - INFO - Exclude relationships: False
+2026-01-13 23:08:11,289 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 23:08:11,289 - __main__ - INFO - SSL verification: True
+2026-01-13 23:08:11,289 - __main__ - INFO - Request timeout: 30s
+2026-01-13 23:08:11,289 - __main__ - INFO - ================================================================================
+2026-01-13 23:08:25,277 - __main__ - ERROR - Import failed: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 303, in _execute_import
+    client.update_term_relationships(term_guid_map, terms)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 361, in update_term_relationships
+    self._handle_response(response, f"update relationships for term '{key[0]}.{key[1]}'")
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 36, in _handle_response
+    raise Exception(
+Exception: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty
+2026-01-13 23:12:41,757 - __main__ - INFO - ================================================================================
+2026-01-13 23:12:41,757 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 23:12:41,757 - __main__ - INFO - ================================================================================
+2026-01-13 23:12:41,757 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 23:12:41,757 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 23:12:41,757 - __main__ - INFO - Dry-run mode: False
+2026-01-13 23:12:41,757 - __main__ - INFO - Validate only: False
+2026-01-13 23:12:41,757 - __main__ - INFO - Exclude relationships: False
+2026-01-13 23:12:41,757 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 23:12:41,757 - __main__ - INFO - SSL verification: True
+2026-01-13 23:12:41,757 - __main__ - INFO - Request timeout: 30s
+2026-01-13 23:12:41,757 - __main__ - INFO - ================================================================================
+2026-01-13 23:12:58,873 - __main__ - INFO - Import completed successfully
+2026-01-13 23:12:58,874 - __main__ - INFO - ================================================================================
+2026-01-13 23:12:58,874 - __main__ - INFO - PROCESS COMPLETED
+2026-01-13 23:12:58,874 - __main__ - INFO - ================================================================================

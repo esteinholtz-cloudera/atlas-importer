@@ -1,0 +1,360 @@
+2026-01-13 19:59:00,019 - __main__ - INFO - ================================================================================
+2026-01-13 19:59:00,019 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 19:59:00,019 - __main__ - INFO - ================================================================================
+2026-01-13 19:59:00,019 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 19:59:00,019 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 19:59:00,019 - __main__ - INFO - Dry-run mode: True
+2026-01-13 19:59:00,019 - __main__ - INFO - Validate only: False
+2026-01-13 19:59:00,019 - __main__ - INFO - Exclude relationships: False
+2026-01-13 19:59:00,019 - __main__ - INFO - Atlas URL: http://localhost:21000
+2026-01-13 19:59:00,019 - __main__ - INFO - SSL verification: True
+2026-01-13 19:59:00,019 - __main__ - INFO - Request timeout: 30s
+2026-01-13 19:59:00,019 - __main__ - INFO - ================================================================================
+2026-01-13 19:59:00,020 - __main__ - ERROR - Import failed: Source term not found: Sales Dictionary.Geographic Dimensions
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 203, in import_glossary
+    graph_builder.apply_relationships(relationships)
+  File "/Users/eriksteinholz/src/atlas-importer/relationship_graph.py", line 22, in apply_relationships
+    self._apply_relationship(rel)
+  File "/Users/eriksteinholz/src/atlas-importer/relationship_graph.py", line 32, in _apply_relationship
+    raise ValueError(
+ValueError: Source term not found: Sales Dictionary.Geographic Dimensions
+2026-01-13 19:59:23,565 - __main__ - INFO - ================================================================================
+2026-01-13 19:59:23,566 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 19:59:23,566 - __main__ - INFO - ================================================================================
+2026-01-13 19:59:23,566 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 19:59:23,566 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 19:59:23,566 - __main__ - INFO - Dry-run mode: True
+2026-01-13 19:59:23,566 - __main__ - INFO - Validate only: False
+2026-01-13 19:59:23,566 - __main__ - INFO - Exclude relationships: False
+2026-01-13 19:59:23,566 - __main__ - INFO - Atlas URL: http://localhost:21000
+2026-01-13 19:59:23,566 - __main__ - INFO - SSL verification: True
+2026-01-13 19:59:23,566 - __main__ - INFO - Request timeout: 30s
+2026-01-13 19:59:23,566 - __main__ - INFO - ================================================================================
+2026-01-13 19:59:23,566 - __main__ - WARNING - Found 1 relationship validation warnings:
+2026-01-13 19:59:23,566 - __main__ - WARNING -   - Relationship target not found: Sales Dictionary.Product Category -> Sales Dictionary.Product Details@glossary
+2026-01-13 19:59:23,567 - __main__ - INFO - ================================================================================
+2026-01-13 19:59:23,567 - __main__ - INFO - IMPORT COMPLETED
+2026-01-13 19:59:23,567 - __main__ - INFO - ================================================================================
+2026-01-13 19:59:41,237 - __main__ - INFO - ================================================================================
+2026-01-13 19:59:41,237 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 19:59:41,237 - __main__ - INFO - ================================================================================
+2026-01-13 19:59:41,237 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 19:59:41,237 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 19:59:41,237 - __main__ - INFO - Dry-run mode: True
+2026-01-13 19:59:41,237 - __main__ - INFO - Validate only: False
+2026-01-13 19:59:41,237 - __main__ - INFO - Exclude relationships: False
+2026-01-13 19:59:41,237 - __main__ - INFO - Atlas URL: http://localhost:21000
+2026-01-13 19:59:41,237 - __main__ - INFO - SSL verification: True
+2026-01-13 19:59:41,237 - __main__ - INFO - Request timeout: 30s
+2026-01-13 19:59:41,237 - __main__ - INFO - ================================================================================
+2026-01-13 19:59:41,239 - __main__ - INFO - ================================================================================
+2026-01-13 19:59:41,239 - __main__ - INFO - IMPORT COMPLETED
+2026-01-13 19:59:41,239 - __main__ - INFO - ================================================================================
+2026-01-13 20:04:07,335 - __main__ - INFO - ================================================================================
+2026-01-13 20:04:07,335 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:04:07,335 - __main__ - INFO - ================================================================================
+2026-01-13 20:04:07,335 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:04:07,335 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:04:07,335 - __main__ - INFO - Dry-run mode: True
+2026-01-13 20:04:07,335 - __main__ - INFO - Validate only: False
+2026-01-13 20:04:07,335 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:04:07,335 - __main__ - INFO - Atlas URL: http://localhost:21000
+2026-01-13 20:04:07,335 - __main__ - INFO - SSL verification: True
+2026-01-13 20:04:07,335 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:04:07,335 - __main__ - INFO - ================================================================================
+2026-01-13 20:04:07,336 - __main__ - INFO - Dry-run completed successfully
+2026-01-13 20:04:07,336 - __main__ - INFO - ================================================================================
+2026-01-13 20:04:07,336 - __main__ - INFO - PROCESS COMPLETED
+2026-01-13 20:04:07,336 - __main__ - INFO - ================================================================================
+2026-01-13 20:05:22,776 - __main__ - INFO - ================================================================================
+2026-01-13 20:05:22,777 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:05:22,777 - __main__ - INFO - ================================================================================
+2026-01-13 20:05:22,777 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:05:22,777 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:05:22,777 - __main__ - INFO - Dry-run mode: True
+2026-01-13 20:05:22,777 - __main__ - INFO - Validate only: False
+2026-01-13 20:05:22,777 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:05:22,777 - __main__ - INFO - Atlas URL: http://localhost:21000
+2026-01-13 20:05:22,777 - __main__ - INFO - SSL verification: True
+2026-01-13 20:05:22,777 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:05:22,777 - __main__ - INFO - ================================================================================
+2026-01-13 20:05:22,778 - __main__ - INFO - Dry-run completed successfully
+2026-01-13 20:05:22,778 - __main__ - INFO - ================================================================================
+2026-01-13 20:05:22,778 - __main__ - INFO - PROCESS COMPLETED
+2026-01-13 20:05:22,778 - __main__ - INFO - ================================================================================
+2026-01-13 20:14:39,326 - __main__ - INFO - ================================================================================
+2026-01-13 20:14:39,327 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:14:39,327 - __main__ - INFO - ================================================================================
+2026-01-13 20:14:39,327 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:14:39,327 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:14:39,327 - __main__ - INFO - Dry-run mode: True
+2026-01-13 20:14:39,327 - __main__ - INFO - Validate only: False
+2026-01-13 20:14:39,327 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:14:39,327 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas/api/atlas/
+2026-01-13 20:14:39,327 - __main__ - INFO - SSL verification: True
+2026-01-13 20:14:39,327 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:14:39,327 - __main__ - INFO - ================================================================================
+2026-01-13 20:14:39,328 - __main__ - INFO - Dry-run completed successfully
+2026-01-13 20:14:39,328 - __main__ - INFO - ================================================================================
+2026-01-13 20:14:39,328 - __main__ - INFO - PROCESS COMPLETED
+2026-01-13 20:14:39,328 - __main__ - INFO - ================================================================================
+2026-01-13 20:15:46,041 - __main__ - INFO - ================================================================================
+2026-01-13 20:15:46,041 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:15:46,041 - __main__ - INFO - ================================================================================
+2026-01-13 20:15:46,041 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:15:46,041 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:15:46,041 - __main__ - INFO - Dry-run mode: True
+2026-01-13 20:15:46,041 - __main__ - INFO - Validate only: False
+2026-01-13 20:15:46,041 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:15:46,041 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas/api/atlas/
+2026-01-13 20:15:46,041 - __main__ - INFO - SSL verification: True
+2026-01-13 20:15:46,041 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:15:46,041 - __main__ - INFO - ================================================================================
+2026-01-13 20:15:46,042 - __main__ - INFO - Dry-run completed successfully
+2026-01-13 20:15:46,042 - __main__ - INFO - ================================================================================
+2026-01-13 20:15:46,042 - __main__ - INFO - PROCESS COMPLETED
+2026-01-13 20:15:46,042 - __main__ - INFO - ================================================================================
+2026-01-13 20:18:29,245 - __main__ - INFO - ================================================================================
+2026-01-13 20:18:29,245 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:18:29,245 - __main__ - INFO - ================================================================================
+2026-01-13 20:18:29,245 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:18:29,246 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:18:29,246 - __main__ - INFO - Dry-run mode: True
+2026-01-13 20:18:29,246 - __main__ - INFO - Validate only: False
+2026-01-13 20:18:29,246 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:18:29,246 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas/api/atlas/
+2026-01-13 20:18:29,246 - __main__ - INFO - SSL verification: True
+2026-01-13 20:18:29,246 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:18:29,246 - __main__ - INFO - ================================================================================
+2026-01-13 20:18:29,247 - __main__ - INFO - Dry-run completed successfully
+2026-01-13 20:18:29,247 - __main__ - INFO - ================================================================================
+2026-01-13 20:18:29,247 - __main__ - INFO - PROCESS COMPLETED
+2026-01-13 20:18:29,247 - __main__ - INFO - ================================================================================
+2026-01-13 20:18:41,944 - __main__ - INFO - ================================================================================
+2026-01-13 20:18:41,944 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:18:41,944 - __main__ - INFO - ================================================================================
+2026-01-13 20:18:41,944 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:18:41,944 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:18:41,944 - __main__ - INFO - Dry-run mode: True
+2026-01-13 20:18:41,944 - __main__ - INFO - Validate only: False
+2026-01-13 20:18:41,944 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:18:41,944 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas/api/atlas/
+2026-01-13 20:18:41,944 - __main__ - INFO - SSL verification: True
+2026-01-13 20:18:41,944 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:18:41,944 - __main__ - INFO - ================================================================================
+2026-01-13 20:18:41,946 - __main__ - INFO - Dry-run completed successfully
+2026-01-13 20:18:41,946 - __main__ - INFO - ================================================================================
+2026-01-13 20:18:41,946 - __main__ - INFO - PROCESS COMPLETED
+2026-01-13 20:18:41,946 - __main__ - INFO - ================================================================================
+2026-01-13 20:21:14,708 - __main__ - INFO - ================================================================================
+2026-01-13 20:21:14,708 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:21:14,708 - __main__ - INFO - ================================================================================
+2026-01-13 20:21:14,708 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:21:14,708 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:21:14,708 - __main__ - INFO - Dry-run mode: True
+2026-01-13 20:21:14,708 - __main__ - INFO - Validate only: False
+2026-01-13 20:21:14,708 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:21:14,708 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas/api/atlas/
+2026-01-13 20:21:14,708 - __main__ - INFO - SSL verification: True
+2026-01-13 20:21:14,708 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:21:14,708 - __main__ - INFO - ================================================================================
+2026-01-13 20:21:14,710 - __main__ - INFO - Dry-run completed successfully
+2026-01-13 20:21:14,710 - __main__ - INFO - ================================================================================
+2026-01-13 20:21:14,710 - __main__ - INFO - PROCESS COMPLETED
+2026-01-13 20:21:14,710 - __main__ - INFO - ================================================================================
+2026-01-13 20:24:23,027 - __main__ - INFO - ================================================================================
+2026-01-13 20:24:23,027 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:24:23,027 - __main__ - INFO - ================================================================================
+2026-01-13 20:24:23,027 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:24:23,027 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:24:23,027 - __main__ - INFO - Dry-run mode: True
+2026-01-13 20:24:23,027 - __main__ - INFO - Validate only: False
+2026-01-13 20:24:23,027 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:24:23,027 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas/api/atlas/
+2026-01-13 20:24:23,027 - __main__ - INFO - SSL verification: True
+2026-01-13 20:24:23,027 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:24:23,027 - __main__ - INFO - ================================================================================
+2026-01-13 20:24:23,029 - __main__ - INFO - Dry-run completed successfully
+2026-01-13 20:24:23,029 - __main__ - INFO - ================================================================================
+2026-01-13 20:24:23,029 - __main__ - INFO - PROCESS COMPLETED
+2026-01-13 20:24:23,029 - __main__ - INFO - ================================================================================
+2026-01-13 20:25:37,849 - __main__ - INFO - ================================================================================
+2026-01-13 20:25:37,849 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:25:37,850 - __main__ - INFO - ================================================================================
+2026-01-13 20:25:37,850 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:25:37,850 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:25:37,850 - __main__ - INFO - Dry-run mode: True
+2026-01-13 20:25:37,850 - __main__ - INFO - Validate only: False
+2026-01-13 20:25:37,850 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:25:37,850 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas/api/atlas/
+2026-01-13 20:25:37,850 - __main__ - INFO - SSL verification: True
+2026-01-13 20:25:37,850 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:25:37,850 - __main__ - INFO - ================================================================================
+2026-01-13 20:25:37,851 - __main__ - INFO - Dry-run completed successfully
+2026-01-13 20:25:37,851 - __main__ - INFO - ================================================================================
+2026-01-13 20:25:37,851 - __main__ - INFO - PROCESS COMPLETED
+2026-01-13 20:25:37,851 - __main__ - INFO - ================================================================================
+2026-01-13 20:31:42,118 - __main__ - INFO - ================================================================================
+2026-01-13 20:31:42,119 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:31:42,119 - __main__ - INFO - ================================================================================
+2026-01-13 20:31:42,119 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:31:42,119 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:31:42,119 - __main__ - INFO - Dry-run mode: False
+2026-01-13 20:31:42,119 - __main__ - INFO - Validate only: False
+2026-01-13 20:31:42,119 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:31:42,119 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas/api/atlas/
+2026-01-13 20:31:42,119 - __main__ - INFO - SSL verification: True
+2026-01-13 20:31:42,119 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:31:42,119 - __main__ - INFO - ================================================================================
+2026-01-13 20:31:51,346 - __main__ - ERROR - Import failed: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 303, in _execute_import
+    client.update_term_relationships(term_guid_map, terms)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 314, in update_term_relationships
+    self._handle_response(response, f"update relationships for term '{key[0]}.{key[1]}'")
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 36, in _handle_response
+    raise Exception(
+Exception: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty
+2026-01-13 20:33:18,595 - __main__ - INFO - ================================================================================
+2026-01-13 20:33:18,596 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:33:18,596 - __main__ - INFO - ================================================================================
+2026-01-13 20:33:18,596 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:33:18,596 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:33:18,596 - __main__ - INFO - Dry-run mode: False
+2026-01-13 20:33:18,596 - __main__ - INFO - Validate only: False
+2026-01-13 20:33:18,596 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:33:18,596 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas/api/atlas/
+2026-01-13 20:33:18,596 - __main__ - INFO - SSL verification: True
+2026-01-13 20:33:18,596 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:33:18,596 - __main__ - INFO - ================================================================================
+2026-01-13 20:33:20,312 - __main__ - ERROR - Import failed: Atlas API error (409) during create glossary 'Sales Dictionary': Glossary with name Sales Dictionary already exists
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 287, in _execute_import
+    glossary_guid_map = client.create_glossaries(glossaries)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 82, in create_glossaries
+    result = self._handle_response(response, f"create glossary '{gloss_name}'")
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 36, in _handle_response
+    raise Exception(
+Exception: Atlas API error (409) during create glossary 'Sales Dictionary': Glossary with name Sales Dictionary already exists
+2026-01-13 20:33:53,138 - __main__ - INFO - ================================================================================
+2026-01-13 20:33:53,138 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:33:53,138 - __main__ - INFO - ================================================================================
+2026-01-13 20:33:53,138 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:33:53,138 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:33:53,138 - __main__ - INFO - Dry-run mode: False
+2026-01-13 20:33:53,138 - __main__ - INFO - Validate only: False
+2026-01-13 20:33:53,138 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:33:53,138 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 20:33:53,138 - __main__ - INFO - SSL verification: True
+2026-01-13 20:33:53,138 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:33:53,138 - __main__ - INFO - ================================================================================
+2026-01-13 20:33:55,010 - __main__ - ERROR - Import failed: Atlas API error (409) during create category 'Sales Dictionary.Financial Metrics': Glossary category with qualifiedName Financial Metrics@Sales Dictionary already exists
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 292, in _execute_import
+    category_guid_map = client.create_categories(categories, glossary_guid_map)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 193, in create_categories
+    process_category(gloss_name, cat_name)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 171, in process_category
+    result = self._handle_response(response, f"create category '{gloss_name}.{cat_name}'")
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 36, in _handle_response
+    raise Exception(
+Exception: Atlas API error (409) during create category 'Sales Dictionary.Financial Metrics': Glossary category with qualifiedName Financial Metrics@Sales Dictionary already exists
+2026-01-13 20:34:43,541 - __main__ - INFO - ================================================================================
+2026-01-13 20:34:43,541 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:34:43,541 - __main__ - INFO - ================================================================================
+2026-01-13 20:34:43,541 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:34:43,541 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:34:43,542 - __main__ - INFO - Dry-run mode: False
+2026-01-13 20:34:43,542 - __main__ - INFO - Validate only: False
+2026-01-13 20:34:43,542 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:34:43,542 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 20:34:43,542 - __main__ - INFO - SSL verification: True
+2026-01-13 20:34:43,542 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:34:43,542 - __main__ - INFO - ================================================================================
+2026-01-13 20:34:46,033 - __main__ - ERROR - Import failed: Category 'Sales Dictionary.Financial Metrics' exists but could not retrieve GUID
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 292, in _execute_import
+    category_guid_map = client.create_categories(categories, glossary_guid_map)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 209, in create_categories
+    process_category(gloss_name, cat_name)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 185, in process_category
+    raise Exception(f"Category '{gloss_name}.{cat_name}' exists but could not retrieve GUID")
+Exception: Category 'Sales Dictionary.Financial Metrics' exists but could not retrieve GUID
+2026-01-13 20:36:01,336 - __main__ - INFO - ================================================================================
+2026-01-13 20:36:01,336 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:36:01,336 - __main__ - INFO - ================================================================================
+2026-01-13 20:36:01,336 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:36:01,336 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:36:01,336 - __main__ - INFO - Dry-run mode: False
+2026-01-13 20:36:01,336 - __main__ - INFO - Validate only: False
+2026-01-13 20:36:01,336 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:36:01,336 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 20:36:01,336 - __main__ - INFO - SSL verification: True
+2026-01-13 20:36:01,336 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:36:01,336 - __main__ - INFO - ================================================================================
+2026-01-13 20:36:03,597 - __main__ - ERROR - Import failed: Category 'Sales Dictionary.Financial Metrics' exists but could not retrieve GUID
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 292, in _execute_import
+    category_guid_map = client.create_categories(categories, glossary_guid_map)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 209, in create_categories
+    process_category(gloss_name, cat_name)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 185, in process_category
+    raise Exception(f"Category '{gloss_name}.{cat_name}' exists but could not retrieve GUID")
+Exception: Category 'Sales Dictionary.Financial Metrics' exists but could not retrieve GUID
+2026-01-13 20:41:30,844 - __main__ - INFO - ================================================================================
+2026-01-13 20:41:30,844 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:41:30,844 - __main__ - INFO - ================================================================================
+2026-01-13 20:41:30,844 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:41:30,844 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:41:30,844 - __main__ - INFO - Dry-run mode: False
+2026-01-13 20:41:30,844 - __main__ - INFO - Validate only: False
+2026-01-13 20:41:30,844 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:41:30,844 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 20:41:30,844 - __main__ - INFO - SSL verification: True
+2026-01-13 20:41:30,844 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:41:30,844 - __main__ - INFO - ================================================================================
+2026-01-13 20:41:35,836 - __main__ - ERROR - Import failed: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 303, in _execute_import
+    client.update_term_relationships(term_guid_map, terms)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 361, in update_term_relationships
+    self._handle_response(response, f"update relationships for term '{key[0]}.{key[1]}'")
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 36, in _handle_response
+    raise Exception(
+Exception: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty
+2026-01-13 20:42:08,690 - __main__ - INFO - ================================================================================
+2026-01-13 20:42:08,690 - __main__ - INFO - ATLAS BUSINESS GLOSSARY IMPORTER
+2026-01-13 20:42:08,690 - __main__ - INFO - ================================================================================
+2026-01-13 20:42:08,690 - __main__ - INFO - Configuration file: config.yaml
+2026-01-13 20:42:08,690 - __main__ - INFO - CSV file: example_glossary.csv
+2026-01-13 20:42:08,690 - __main__ - INFO - Dry-run mode: False
+2026-01-13 20:42:08,690 - __main__ - INFO - Validate only: False
+2026-01-13 20:42:08,690 - __main__ - INFO - Exclude relationships: False
+2026-01-13 20:42:08,690 - __main__ - INFO - Atlas URL: https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas
+2026-01-13 20:42:08,690 - __main__ - INFO - SSL verification: True
+2026-01-13 20:42:08,690 - __main__ - INFO - Request timeout: 30s
+2026-01-13 20:42:08,690 - __main__ - INFO - ================================================================================
+2026-01-13 20:42:14,266 - __main__ - ERROR - Import failed: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty
+Traceback (most recent call last):
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 247, in import_glossary
+    _execute_import(
+  File "/Users/eriksteinholz/src/atlas-importer/main.py", line 303, in _execute_import
+    client.update_term_relationships(term_guid_map, terms)
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 363, in update_term_relationships
+    self._handle_response(response, f"update relationships for term '{key[0]}.{key[1]}'")
+  File "/Users/eriksteinholz/src/atlas-importer/atlas_client.py", line 36, in _handle_response
+    raise Exception(
+Exception: Atlas API error (400) during update relationships for term 'Sales Dictionary.Revenue': DisplayName can't be null/empty

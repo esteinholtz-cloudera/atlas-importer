@@ -1,0 +1,34 @@
+type,glossary_name,name,parent_category_name,short_description,long_description,category_names,status,steward,abbreviation,examples,is_relationship,linked_glossary_name,linked_entity_name,relationship_type
+glossary,Sales Dictionary,,,,,,,,,,False,,
+glossary,Customer Master,,,,,,,,,,False,,
+category,Sales Dictionary,Financial Metrics,,,,,Active,,,,False,,
+category,Sales Dictionary,Product Classifications,,Parent category for all product-related classifications,,,Active,,,,False,,
+category,Sales Dictionary,Time Dimensions,,Temporal dimensions for sales data,,,Active,,,,False,,
+category,Sales Dictionary,Geographic Dimensions,,,,,Active,,,,False,,
+category,Sales Dictionary,Customer Dimensions,,,,,Active,,,,False,,
+category,Sales Dictionary,Product Details,Product Classifications,Specific product information,,,Active,,,,False,,
+category,Sales Dictionary,Product Categories,Product Classifications,Broad product categories,,,Active,,,,False,,
+category,Customer Master,Customer Attributes,,Core customer identifiers and attributes,,,Active,,,,False,,
+category,Customer Master,Customer Classification,,Customer segmentation and classification,,,Active,,,,False,,
+term,Sales Dictionary,Revenue,Financial Metrics,Total income from sales,Money received from customers as payment for goods or services,Financial Metrics,Active,Finance Team,REV,"$1M in Q1, $2M in Q2",False,,
+term,Sales Dictionary,Sales Amount,Financial Metrics,Amount of individual sale transaction,Amount charged to customer for a single transaction,Financial Metrics,Active,Finance Team,SA,"$100, $500, $1000",False,,
+term,Sales Dictionary,Discount Amount,Financial Metrics,Reduction in price offered,The monetary reduction from the standard list price,Financial Metrics,Active,Finance Team,DA,"10%, $50, $25",False,,
+term,Sales Dictionary,Product ID,Product Details,Unique product identifier,System-generated unique identifier for each product,Product Details,Active,Product Team,PID,"PROD-001, PROD-002",False,,
+term,Sales Dictionary,Product Name,Product Details,Common name of product,Marketing name of the product,Product Details,Active,Product Team,PN,"Widget A, Widget B",False,,
+term,Sales Dictionary,Product Category,Product Categories,Broad product classification,High-level categorization of products,Product Categories,Active,Product Team,PC,"Electronics, Apparel",False,,
+term,Sales Dictionary,Customer ID,Customer Dimensions,Unique customer identifier,System-generated unique identifier for each customer,Customer Dimensions,Active,Customer Team,CID,"CUST-001, CUST-002",False,,
+term,Sales Dictionary,Customer Name,Customer Dimensions,Customer full name,Legal name of the customer,Customer Dimensions,Active,Customer Team,CN,"John Smith, Jane Doe",False,,
+term,Sales Dictionary,Region,Geographic Dimensions,Geographic sales region,Territory or region for sales classification,Geographic Dimensions,Active,Sales Team,RGN,"North America, Europe, APAC",False,,
+term,Sales Dictionary,Year,Time Dimensions,Calendar year for data,The fiscal or calendar year,Time Dimensions,Active,Analytics Team,YR,"2023, 2024",False,,
+term,Sales Dictionary,Quarter,Time Dimensions,Business quarter,Three-month business period,Time Dimensions,Active,Analytics Team,QTR,"Q1, Q2, Q3, Q4",False,,
+term,Customer Master,Customer Identifier,Customer Attributes,Unique customer ID,Primary key for customer records,Customer Attributes,Active,Customer Team,CI,"CUST-001, CUST-002",False,,
+term,Customer Master,Customer Legal Name,Customer Attributes,Official customer name,Full legal name of the customer entity,Customer Attributes,Active,Customer Team,CLN,"Acme Inc, Beta Corp",False,,
+term,Customer Master,Customer Segment,Customer Classification,Customer business segment,Classification of customer by type or size,Customer Classification,Active,Customer Team,CS,"Enterprise, Mid-Market, SMB",False,,
+term,Customer Master,Customer Status,Customer Classification,Active status indicator,Whether customer is active or inactive,Customer Classification,Active,Customer Team,CST,"Active, Inactive, Suspended",False,,
+is_relationship,Sales Dictionary,Revenue,synonym,,,,ACTIVE,,,,True,Sales Dictionary,Sales Amount,synonym
+is_relationship,Sales Dictionary,Product ID,related_term,,,,ACTIVE,,,,True,Sales Dictionary,Product Name,related_term
+is_relationship,Sales Dictionary,Customer ID,is_a,,,,ACTIVE,,,,True,Customer Master,Customer Identifier,is_a
+is_relationship,Sales Dictionary,Product Category,classifies,,,,ACTIVE,,,,True,Sales Dictionary,Product ID,classifies
+is_relationship,Sales Dictionary,Revenue,preferred_term,,,,ACTIVE,,,,True,Sales Dictionary,Sales Amount,preferred_term
+is_relationship,Sales Dictionary,Region,see_also,,,,ACTIVE,,,,True,Sales Dictionary,Year,see_also
+is_relationship,Sales Dictionary,Customer ID,synonym,,,,ACTIVE,,,,True,Customer Master,Customer Identifier,synonym

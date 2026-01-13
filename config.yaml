@@ -1,0 +1,44 @@
+# Cloudera Atlas REST API Configuration
+atlas:
+  # Base URL for Atlas REST API
+  base_url: "https://se-aws-edl-gateway.se-sandb.a465-9q4k.cloudera.site/se-aws-edl/cdp-proxy-api/atlas"
+  
+  # Authentication credentials
+  username: "esteinholtz"
+  password: "Gurka222"
+  
+  # SSL verification (set to false for self-signed certificates)
+  verify_ssl: true
+  
+  # Request timeout in seconds
+  timeout: 30
+
+# CSV Import Configuration
+import:
+  # Path to CSV file (can be overridden via CLI)
+  csv_file: "example_glossary.csv"
+  
+  # Dry-run mode (validate without making API calls)
+  dry_run: false
+  
+  # Log level: DEBUG, INFO, WARNING, ERROR
+  log_level: "INFO"
+  
+  # Output log file path
+  log_file: "atlas_import.log"
+
+# Relationship Configuration
+relationships:
+  # Relationship types that should be bidirectional
+  bidirectional_types:
+    - "synonym"
+    - "antonym"
+    - "related_term"
+    - "see_also"
+  
+  # Relationship types that are unidirectional
+  unidirectional_types:
+    - "preferred_term"
+    - "replacement_term"
+    - "is_a"
+    - "classifies"

@@ -1,0 +1,5 @@
+type,glossary_name,name,parent_category_name
+glossary,My Glossary,
+category,My Glossary,Parent Category,
+category,My Glossary,Child Category,Parent Category
+category,My Glossary,Grandchild Category,Child Category

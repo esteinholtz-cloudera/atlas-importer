@@ -8,7 +8,7 @@ A Python utility for importing business glossary definitions (glossaries, catego
 - **Hierarchical structures**: Create nested categories and organize terms into multiple categories
 - **Term relationships**: Create bidirectional and unidirectional relationships (synonyms, antonyms, related terms, preferred terms, replacement terms, see also, is-a, classifies)
 - **Cross-glossary references**: Link terms across different glossaries
-- **Sparse relationship rows**: Define relationships as separate rows, supporting multiple relationships per term
+- **Relationship rows**: Define relationships as separate rows using `type=relationship`, supporting multiple relationships per term
 - **Dry-run mode**: Validate CSV structure and preview changes before uploading to Atlas
 - **Comprehensive validation**: Check for missing references, duplicate names, and invalid configurations
 - **Detailed logging**: Track all operations with informative logs
@@ -25,13 +25,22 @@ A Python utility for importing business glossary definitions (glossaries, catego
 ### Setup
 
 1. Clone or download the repository
-2. Install dependencies:
+2. Install dependencies using `uv` (recommended):
+
+```bash
+pip install uv
+uv sync
+```
+
+**Alternative installation methods:**
+
+Using pip directly:
 
 ```bash
 pip install requests pydantic click pyyaml pandas
 ```
 
-Or use pip with the project file:
+Or with project file:
 
 ```bash
 cd atlas-importer
@@ -43,11 +52,11 @@ pip install -e .
 ### Basic Command
 
 ```bash
-python main.py \
-  --csv-file glossary.csv \
+python main.py import-glossary \
+  --csv glossary.csv \
   --atlas-url https://atlas-host:21000 \
-  --username admin \
-  --password secret
+  --atlas-username admin \
+  --atlas-password secret
 ```
 
 ### Dry-Run Mode (Validation Only)
@@ -55,54 +64,54 @@ python main.py \
 Preview all changes without uploading to Atlas:
 
 ```bash
-python main.py \
-  --csv-file glossary.csv \
+python main.py import-glossary \
+  --csv glossary.csv \
   --atlas-url https://atlas-host:21000 \
-  --username admin \
-  --password secret \
+  --atlas-username admin \
+  --atlas-password secret \
   --dry-run
 ```
 
 ### Options
 
-- `--csv-file` (required): Path to CSV file containing glossary definitions
+- `--csv` (required): Path to CSV file containing glossary definitions
 - `--atlas-url` (required): Cloudera Atlas base URL (e.g., `https://atlas-host:21000`)
-- `--username` (required): Atlas username for authentication
-- `--password` (required): Atlas password for authentication
+- `--atlas-username` (required): Atlas username for authentication
+- `--atlas-password` (required): Atlas password for authentication
 - `--verify-ssl`: Enable SSL certificate verification (default: enabled)
 - `--dry-run`: Run in validation-only mode without uploading
+- `--config`: Path to configuration file (default: config.yaml)
+- `--filter-glossary`: Only import specified glossaries (can be used multiple times)
+- `--filter-term`: Only import specified terms (can be used multiple times)
+- `--exclude-relationships`: Skip relationship creation
+- `--validate-only`: Validate CSV without creating anything
 
 ## CSV Format
 
-The CSV file contains two types of rows distinguished by the `is_relationship` column:
+The CSV file contains four types of rows distinguished by the `type` column:
 
-### Full Entity Rows (`is_relationship=False`)
+### Entity Rows
 
 These rows define glossaries, categories, and terms.
 
 #### Glossary Rows
 
 ```csv
-type,glossary_name,name,parent_category_name,short_description,long_description,category_names,status,steward,abbreviation,examples,is_relationship,linked_glossary_name,linked_entity_name,relationship_type
-glossary,My Business Glossary,,,"Primary business data definitions",,,,,,,False,,
+type,glossary_name,short_description
+glossary,My Business Glossary,Primary business data definitions
 ```
 
 **Fields:**
 - `type`: Must be `glossary`
-- `glossary_name`: Name of the glossary (becomes part of glossary identifier)
-- `name`: Human-readable name (same as glossary_name for glossaries)
-- `short_description`: Brief description
-- `long_description`: Detailed description
-- `language`: Optional language code (e.g., `en`, `fr`)
-- `usage`: Optional usage guidelines
-- `is_relationship`: Must be `False`
+- `glossary_name`: Name of the glossary
+- `short_description`: Optional brief description
 
 #### Category Rows
 
 ```csv
-type,glossary_name,name,parent_category_name,short_description,long_description,category_names,status,steward,abbreviation,examples,is_relationship,linked_glossary_name,linked_entity_name,relationship_type
-category,My Business Glossary,Dimension Entities,,Entities used in dimensional modeling,,,ACTIVE,,,,False,,
-category,My Business Glossary,Product Dimensions,Dimension Entities,Product-related dimensions,,,ACTIVE,,,,False,,
+type,glossary_name,name,parent_category_name,short_description
+category,My Business Glossary,Dimension Entities,,Entities used in dimensional modeling
+category,My Business Glossary,Product Dimensions,Dimension Entities,Product-related dimensions
 ```
 
 **Fields:**
@@ -110,50 +119,45 @@ category,My Business Glossary,Product Dimensions,Dimension Entities,Product-rela
 - `glossary_name`: Parent glossary name (must be defined)
 - `name`: Category name
 - `parent_category_name`: Optional parent category (for nested structures)
-- `short_description`: Brief description
-- `long_description`: Detailed description
-- `status`: Must be one of: `ACTIVE`, `DRAFT`, `DEPRECATED`, `OBSOLETE`, `OTHER`
-- `is_relationship`: Must be `False`
+- `short_description`: Optional description
 
 #### Term Rows
 
 ```csv
-type,glossary_name,name,parent_category_name,short_description,long_description,category_names,status,steward,abbreviation,examples,is_relationship,linked_glossary_name,linked_entity_name,relationship_type
-term,My Business Glossary,Customer ID,,"Unique customer identifier","System-assigned unique identifier","Dimension Entities,Customer Dimensions",ACTIVE,Customer Team,CID,"CUST-001, CUST-002",False,,
+type,glossary_name,name,category_names,short_description,long_description,status,steward,abbreviation,examples
+term,My Business Glossary,Customer ID,"Dimension Entities,Customer Dimensions",Unique customer identifier,System-assigned unique identifier,Active,Customer Team,CID,"CUST-001, CUST-002"
 ```
 
 **Fields:**
 - `type`: Must be `term`
 - `glossary_name`: Parent glossary name (must be defined)
 - `name`: Term name
-- `short_description`: Brief description
-- `long_description`: Detailed description
 - `category_names`: Comma-separated list of categories (optional, must exist)
-- `status`: One of: `ACTIVE`, `DRAFT`, `DEPRECATED`, `OBSOLETE`, `OTHER`
+- `short_description`: Optional brief description
+- `long_description`: Optional detailed description
+- `status`: Optional status (default: `Active`)
 - `steward`: Optional term owner/steward name
 - `abbreviation`: Optional short form
-- `examples`: Comma-separated examples
-- `is_relationship`: Must be `False`
+- `examples`: Optional comma-separated examples
 
-### Sparse Relationship Rows (`is_relationship=True`)
+#### Relationship Rows
 
 These rows define relationships between terms. Each row creates one relationship; multiple relationships for the same term use multiple rows.
 
 ```csv
-type,glossary_name,name,parent_category_name,short_description,long_description,category_names,status,steward,abbreviation,examples,is_relationship,linked_glossary_name,linked_entity_name,relationship_type
-is_relationship,My Business Glossary,Customer ID,,,,,,,,True,My Business Glossary,Customer Name,synonym
-is_relationship,My Business Glossary,Product ID,,,,,,,,True,My Business Glossary,Product Code,related_term
-is_relationship,Sales Glossary,Revenue,,,,,,,,True,Finance Glossary,Total Income,preferred_term
+type,glossary_name,name,linked_glossary_name,linked_entity_name,relationship_type
+relationship,My Business Glossary,Customer ID,My Business Glossary,Customer Name,synonym
+relationship,My Business Glossary,Product ID,My Business Glossary,Product Code,related_term
+relationship,Sales Glossary,Revenue,Finance Glossary,Total Income,preferred_term
 ```
 
 **Fields:**
-- Only the following fields are used:
-  - `is_relationship`: Must be `True`
-  - `glossary_name`: Source glossary
-  - `name`: Source term name
-  - `linked_glossary_name`: Target glossary (can be different)
-  - `linked_entity_name`: Target term name
-  - `relationship_type`: Type of relationship (see below)
+- `type`: Must be `relationship`
+- `glossary_name`: Source glossary
+- `name`: Source term name
+- `linked_glossary_name`: Target glossary (can be different)
+- `linked_entity_name`: Target term name
+- `relationship_type`: Type of relationship (see below)
 
 **Relationship Types:**
 
@@ -183,11 +187,11 @@ See `example_glossary.csv` for a complete example with:
 Run with dry-run to preview:
 
 ```bash
-python main.py \
-  --csv-file example_glossary.csv \
+python main.py import-glossary \
+  --csv example_glossary.csv \
   --atlas-url https://atlas-host:21000 \
-  --username admin \
-  --password secret \
+  --atlas-username admin \
+  --atlas-password secret \
   --dry-run
 ```
 
@@ -261,7 +265,8 @@ LOGLEVEL=DEBUG python main.py ...
 You can link terms across different glossaries using the `linked_glossary_name` field in relationship rows:
 
 ```csv
-is_relationship,Sales Glossary,Revenue,,,,,,,,True,Finance Glossary,Total Income,synonym
+type,glossary_name,name,linked_glossary_name,linked_entity_name,relationship_type
+relationship,Sales Glossary,Revenue,Finance Glossary,Total Income,synonym
 ```
 
 ### Hierarchical Categories
@@ -286,12 +291,12 @@ term,My Glossary,Customer ID,,"Unique identifier","System ID","Finance,Operation
 
 ### Multiple Relationships
 
-Create multiple relationships for a single term by using multiple sparse rows:
+Create multiple relationships for a single term by using multiple relationship rows:
 
 ```csv
-is_relationship,My Glossary,Term A,,,,,,,,True,My Glossary,Term B,synonym
-is_relationship,My Glossary,Term A,,,,,,,,True,My Glossary,Term C,related_term
-is_relationship,My Glossary,Term A,,,,,,,,True,My Glossary,Term D,see_also
+relationship,My Glossary,Term A,My Glossary,Term B,synonym
+relationship,My Glossary,Term A,My Glossary,Term C,related_term
+relationship,My Glossary,Term A,My Glossary,Term D,see_also
 ```
 
 ## Troubleshooting
@@ -315,7 +320,7 @@ is_relationship,My Glossary,Term A,,,,,,,,True,My Glossary,Term D,see_also
 - Check if user has proper Atlas permissions
 
 ### CSV parsing errors
-- Ensure `is_relationship` column is present in header
+- Ensure `type` column is present in header
 - Verify enum values are exact (e.g., `ACTIVE` not `Active`)
 - Check that comma-separated fields don't have unquoted commas within values
 

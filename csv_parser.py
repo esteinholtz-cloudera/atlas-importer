@@ -13,7 +13,7 @@ class CSVParser:
     """Parse CSV file into entities and relationships"""
     
     REQUIRED_COLUMNS = {
-        "type", "glossary_name", "is_relationship"
+        "type", "glossary_name"
     }
     
     GLOSSARY_COLUMNS = {"type", "glossary_name"}
@@ -31,7 +31,7 @@ class CSVParser:
     
     RELATIONSHIP_COLUMNS = {
         "glossary_name", "name", "relationship_type",
-        "linked_glossary_name", "linked_entity_name", "is_relationship"
+        "linked_glossary_name", "linked_entity_name"
     }
     
     def __init__(self, config):
@@ -83,9 +83,8 @@ class CSVParser:
         row = {k: (v.strip() if v else "") for k, v in row.items()}
         
         entity_type = row.get("type", "").lower()
-        is_relationship = row.get("is_relationship", "false").lower() == "true"
         
-        if is_relationship:
+        if entity_type == "relationship":
             self._parse_relationship_row(row)
         elif entity_type == "glossary":
             self._parse_glossary_row(row)

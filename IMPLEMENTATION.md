@@ -72,7 +72,7 @@ Parses CSV and builds in-memory data structures:
 **Features:**
 - Column validation
 - Entity type detection (glossary/category/term/relationship)
-- Sparse relationship row handling
+- Relationship row handling (defined as separate rows with type=relationship)
 - Bidirectional relationship expansion
 - Full validation with detailed error reporting
 
@@ -350,7 +350,7 @@ uv run python main.py import-glossary --csv example_glossary.csv --dry-run
 - 2 Glossaries: "Sales Dictionary", "Customer Master"
 - 9 Categories: 6 parent categories, 2 child categories
 - 15 Terms: Various attributes, categories, examples
-- 7 Sparse relationship rows creating 11 bidirectional relationships
+- 11 Relationship rows creating 11 bidirectional relationships
 
 ## Production Readiness
 

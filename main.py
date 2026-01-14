@@ -3,7 +3,7 @@
 Cloudera Atlas Business Glossary CSV Importer
 
 Imports business glossaries, categories, and terms from CSV files into Cloudera Atlas.
-Supports sparse relationship rows with bidirectional linking and dry-run validation.
+Supports relationship definition as separate rows with bidirectional linking and dry-run validation.
 """
 
 import logging
